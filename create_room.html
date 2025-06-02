@@ -1,0 +1,265 @@
+<!DOCTYPE html> <!-- START HTML 5 -->
+
+<html lang="fa"> <!-- START LANGUAGE HTML 5 -->
+
+<head> <!-- START SETTINGS HTML 5 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Bootstrap/CSS/bootstrap.min.css"> <!-- START LINK BOOTSTRAP 5 CSS 3 HTML 5 -->
+    <script src="Bootstrap/JS/bootstrap.bundle.min.js"></script> <!-- START LINK BOOTSTRAP 5 JS HTML 5 -->
+    <link rel="stylesheet" href="style.css"> <!-- START LINK CSS 3 HTML 5 -->
+    <script src="script.js"></script> <!-- START LINK JAVA SCRIPT HTML 5 -->
+    <script src="FlatPickr/JS/flatpickr"></script>
+    <link rel="stylesheet" href="FlatPickr/CSS/flatpickr.min.css">
+    <title>داشبورد پنل مدیریت</title> <!-- START TITLE HTML 5 -->
+</head> <!-- END SETTINGS HTML 5 -->
+
+<body dir="ltr" data-bs-theme="light"> <!-- START BODY HTML 5 -->
+
+    <!-- START NAVBAR BOOTSTRAP 5 HTML 5 -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+    
+        <div class="container-fluid">
+
+            <a href="index.html" class="navbar-brand">Pannel Admin</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MyNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="MyNavbar">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-warning">خانه</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="users.html" class="nav-link text-warning">لیست اعضا ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link text-warning">لیست روم ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="transactions.html" class="nav-link text-warning">لیست تراکنش ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="create_room.html" class="nav-link text-warning">ساخت روم جدید</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="add_user.html" class="nav-link text-warning">ساخت کاربر جدید</a>
+                    </li>
+
+                    <button type="button" class="btn btn-secondary">خروج</button>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </nav>
+
+    <!-- END NAVBAR BOOTSTRAP 5 HTML 5 -->
+
+    <!-- START HEADER HTML 5 -->
+    <header class="header p-5 bg-dark text-white"><h2>ساخت روم جدید</h2></header>
+    <!-- END HEADER HTML 5 -->
+
+    <div class="container">
+
+        <br>
+
+        <form action="#" method="post" id="createRoomForm">
+
+            <label>تایپ روم : </label>
+            <select name="roomType" class="form-control" required>
+                <option value="multi">Multi</option>
+                <option value="battle">Battle</option>
+            </select>
+            <br><br>
+
+            <label>نوع روم:</label>
+
+            <select name="roomMode" class="form-control" required>
+                <option value="squad">Squad</option>
+                <option value="solo">Solo</option>
+                <option value="duo">Duo</option>
+                <option value="trio">Trio</option>
+            </select>
+
+            <br><br>
+
+            <label>توضیحات : </label>
+
+            <select name="description" id="descriptionList" class="form-control" required>
+                <!-- توضیحات از API یا لیست ثابت لود میشه -->
+            </select>
+
+            <button type="button" onclick="addDescription()" class="btn btn-danger mb-2" style="margin-top : 5px;">+</button>
+
+            <br>
+            <div id="descriptionListView">
+                <strong>لیست قوانین وارد شده:</strong>
+                <ul class="list-group mt-2" id="descriptionDisplay">
+                    <!-- موارد اضافه‌شده اینجا نمایش داده میشن -->
+                </ul>
+            </div>
+
+            <br>
+
+            <label>انتخاب عکس روم : </label>
+
+            <div style="overflow-x : auto;">
+
+            <div class="image-grid" id="roomImages">
+                <!-- تصاویر از API لود می‌شوند -->
+            </div>
+
+        </div>
+
+            <input type="hidden" name="selectedImage" id="selectedImage">
+
+            <br>
+
+            <label for="Name_Room">نام روم : </label>
+            <input type="text" name="Name_Room" class="form-control" placeholder="نام روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">آی دی روم : </label>
+            <input type="text" name="Name_Room" class="form-control" placeholder="آی دی روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">رمز روم : </label>
+            <input type="text" name="Name_Room" class="form-control" placeholder="رمز روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">ظرفیت روم : </label>
+            <input type="text" name="Name_Room" class="form-control" placeholder="ظرفیت روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">تاریخ برگزاری روم :</label>
+            <input type="date" name="Name_Room" class="form-control" placeholder="تاریخ برگزاری روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">ساعت شروع روم : </label>
+            <input type="time" name="Name_Room" id="start_time" class="form-control">
+
+            <br>
+
+            <label for="Name_Room">هزینه ورودی روم : </label>
+            <input type="number" name="Name_Room" class="form-control" placeholder="هزینه ثبت نام روم را وارد کنید">
+
+            <br>
+
+            <label for="Name_Room">مبلغ ورودی روم : </label>
+            <input type="number" name="Name_Room" class="form-control" placeholder="مبلغ جایزه روم را وارد کنید">
+
+            <br>
+
+            <button type="submit" class="btn btn-success">ساخت روم</button>
+
+        </form>
+
+        <br>
+
+    </div>
+
+    <!-- START FOOTER HTML 5 -->
+     <footer class="footer p-4 bg-dark text-white">
+        <p> . تمامی حقوق محفوظ @ است </p>
+     </footer>
+    <!-- END FOOTER HTML 5 -->
+
+    <script>
+    // لیست تصاویر فرضی
+    const imageUrls = [
+        'https://example.com/image1.jpg',
+        'https://example.com/image2.jpg',
+        'https://example.com/image2.jpg',
+        'https://example.com/image2.jpg',
+        'https://example.com/image2.jpg'
+    ];
+          
+    // لود کردن تصاویر
+    const imageGrid = document.getElementById('roomImages');
+        imageUrls.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.addEventListener('click', () => {
+                document.querySelectorAll('.image-grid img').forEach(i => i.classList.remove('selected'));
+                img.classList.add('selected');
+                document.getElementById('selectedImage').value = url;
+            });
+            imageGrid.appendChild(img);
+    });
+
+
+    const descriptions = [
+        { title: 'قانون ۱', body: 'توضیح قانون اول' },
+        { title: 'قانون ۲', body: 'توضیح قانون دوم' },
+        { title: 'جایزه', body: 'جایزه مربوط به برنده‌ها' }
+    ];
+
+    // لود کردن توضیحات
+    const descriptionSelect = document.getElementById('descriptionList');
+    descriptions.forEach(desc => {
+        const option = document.createElement('option');
+        option.value = desc.title + ' - ' + desc.body;
+        option.textContent = desc.title;
+        descriptionSelect.appendChild(option);
+    });
+
+    // افزودن توضیح جدید
+    function addDescription() {
+        const title = prompt('عنوان قانون جدید را وارد کنید:');
+        const body = prompt('متن توضیح را وارد کنید:');
+        if (title && body) {
+            const option = document.createElement('option');
+            option.value = title + ' - ' + body;
+            option.textContent = title;
+            descriptionSelect.appendChild(option);
+            descriptionSelect.value = option.value;
+
+            // اضافه کردن به لیست نمایشی
+            const displayList = document.getElementById('descriptionDisplay');
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = title + ' - ' + body;
+            displayList.appendChild(li);
+        }
+    }
+
+    // هندل کردن ارسال فرم
+    document.getElementById('createRoomForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const roomData = Object.fromEntries(formData.entries());
+        console.log(roomData); // ارسال اطلاعات
+        alert('روم ساخته شد . !');
+    });
+
+    flatpickr("#start_time", {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",     // نمایش ساعت به صورت 24 ساعته
+      time_24hr: true        // اجبار به 24 ساعته
+    });
+
+    </script>
+    
+</body> <!-- END BODY HTML 5 -->
+
+</html> <!-- END HTML 5 -->

@@ -1,0 +1,179 @@
+<!DOCTYPE html> <!-- START HTML 5 -->
+
+<html lang="fa"> <!-- START LANGUAGE HTML 5 -->
+
+<head> <!-- START SETTINGS HTML 5 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Bootstrap/CSS/bootstrap.min.css"> <!-- START LINK BOOTSTRAP 5 CSS 3 HTML 5 -->
+    <script src="Bootstrap/JS/bootstrap.bundle.min.js"></script> <!-- START LINK BOOTSTRAP 5 JS HTML 5 -->
+    <link rel="stylesheet" href="style.css"> <!-- START LINK CSS 3 HTML 5 -->
+    <script src="script.js"></script> <!-- START LINK JAVA SCRIPT HTML 5 -->
+    <title>داشبورد پنل مدیریت</title> <!-- START TITLE HTML 5 -->
+</head> <!-- END SETTINGS HTML 5 -->
+
+<body dir="ltr" data-bs-theme="light"> <!-- START BODY HTML 5 -->
+
+    <!-- START NAVBAR BOOTSTRAP 5 HTML 5 -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+    
+        <div class="container-fluid">
+
+            <a href="index.html" class="navbar-brand">Pannel Admin</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MyNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="MyNavbar">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-warning">خانه</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="users.html" class="nav-link text-warning">لیست اعضا ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link text-warning">لیست روم ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="transactions.html" class="nav-link text-warning">لیست تراکنش ها</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="create_room.html" class="nav-link text-warning">ساخت روم جدید</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="add_user.html" class="nav-link text-warning">ساخت کاربر جدید</a>
+                    </li>
+
+                    <button type="button" class="btn btn-secondary">خروج</button>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </nav>
+
+    <!-- END NAVBAR BOOTSTRAP 5 HTML 5 -->
+
+    <!-- START HEADER HTML 5 -->
+    <header class="header p-5 bg-dark text-white"><h2>مدیریت تراکنش ها</h2></header>
+    <!-- END HEADER HTML 5 -->
+
+    <!-- START USERS TABLE BOOTSTRAP 5 -->
+
+    <div class="container">
+
+        <!-- START SEARCH TABLE HTML 5 -->
+        <div class="d-flex align-items-center mt-5 mb-3">
+            <input type="text" id="searchInput" class="form-control w-50 me-3" placeholder="جستجو کنید" onkeyup="filterTable()">
+            <button class="btn btn-info text-dark" onclick="filterTable()">جستجو</button>
+        </div>
+        <!-- END SEARCH HTML 5 -->     
+
+        <div class="table-responsive">
+
+        <table class="table table-bordered table-striped mt-4" style="height : 150px; font-size : 20px; text-align : center;" id="userTable">
+
+        <thead>
+            <tr>
+                <th>ردیف</th>
+                <th>تاریخ تراکنش</th>
+                <th>شناسه تراکنش</th>
+                <th>نام کاربر</th>
+                <th>نوع تراکنش</th>
+                <th>مبلغ تراکنش</th>
+                <th>وضعیت پرداخت</th>
+                <th>روش پرداخت</th>
+                <th>وضعیت تراکنش</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>1404 / 4 / 8</td>
+                <td>157811574</td>
+                <td>Riza</td>
+                <td>پرداخت</td>
+                <td>500,000</td>
+                <td>پرداخت شده</td>
+                <td>پرداخت آنلاین</td>
+                <td>تایید شده</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>1404 / 4 / 8</td>
+                <td>157811574</td>
+                <td>Amir</td>
+                <td>پرداخت</td>
+                <td>500,000</td>
+                <td>پرداخت شده</td>
+                <td>پرداخت آنلاین</td>
+                <td>تایید شده</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>1404 / 4 / 8</td>
+                <td>157811574</td>
+                <td>Armin</td>
+                <td>پرداخت</td>
+                <td>500,000</td>
+                <td>پرداخت شده</td>
+                <td>پرداخت آنلاین</td>
+                <td>تایید شده</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>1404 / 4 / 8</td>
+                <td>157811574</td>
+                <td>Paria</td>
+                <td>پرداخت</td>
+                <td>500,000</td>
+                <td>پرداخت شده</td>
+                <td>پرداخت آنلاین</td>
+                <td>تایید شده</td>
+            </tr>
+            
+        </tbody>
+
+     </table>
+
+    </div>
+
+    <ul class="pagination" style="justify-content : center; margin-top : 20px;">
+        <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">بعدی</a></li>
+    </ul>
+
+    </div>
+    <!-- END USERS TABLE BOOTSTRAP 5 -->
+
+    <!-- START FOOTER HTML 5 -->
+     <footer class="footer p-4 bg-dark text-white">
+        <p> . تمامی حقوق محفوظ @ است </p>
+     </footer>
+    <!-- END FOOTER HTML 5 -->
+    
+</body> <!-- END BODY HTML 5 -->
+
+</html> <!-- END HTML 5 -->

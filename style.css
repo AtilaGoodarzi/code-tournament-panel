@@ -1,0 +1,105 @@
+/* START BODY CSS 3 */
+body {
+    font-family : Lalezar;
+    margin : 0px;
+    padding : 0px;
+}
+/* END BODY CSS 3 */
+
+/* START FONT BODY CSS 3 */
+@font-face {
+    font-family: Lalezar;
+    src: url('Lalezar-Font/TTF/Lalezar-Regular.ttf');
+}
+/* END FONT BODY CSS 3 */
+
+.row {
+    margin : 10px;
+}
+
+/* START HEADER CSS 3 */
+
+.header {
+    text-align : center;
+    font-size : 30px;
+    height : 300px;
+}
+
+.header h2 {
+    margin-top : 80px;
+}
+
+/* END HEADER CSS 3 */
+
+/* START STATUS CARD CSS 3 */
+.card {
+    padding : 20px;
+}
+
+.badge {
+    width : 50px;
+}
+/* END STATUS CARD CSS 3 */
+
+/* START FOOTER CSS 3 */
+.footer {
+    text-align : center;
+    height : 80px;
+}
+/* END FOOTER CSS 3 */
+
+/* START SELECT IMG ROOM */
+
+.image-grid {
+    display : flex;
+    flex-wrap : nowrap;
+    gap : 10px;
+    padding : 10px 0px;
+}
+
+.image-grid img {
+    width : 100px;
+    height : 100px;
+    object-fit : cover;
+    border : 2px solid transparent;
+    cursor : pointer;
+    border-radius : 10px;
+    transition: 0.3s;
+}
+
+.image-grid img.selected {
+    border-color : #dc3545;
+}
+/* END SELECT IMG ROOM */
+
+
+/* START Players CSS 3 */
+.player-row {
+    overflow-x : auto;
+    white-space : nowrap;
+    margin-bottom : 20px;
+    padding-bottom : 10px;
+    border-bottom : 1px solid #121212;
+  }
+  
+  .player {
+    display : inline-block;
+    width : 100px;
+    margin : 0 10px;
+    text-align : center;
+  }
+
+  .player img {
+    width : 100px;
+    height : 100px;
+    object-fit : cover;
+    border-radius : 10px;
+    border : 2px solid #121212;
+  }
+
+  .player-name {
+    margin-top : 5px;
+    font-size : 14px;
+  }
+
+/* End Players CSS 3 */
